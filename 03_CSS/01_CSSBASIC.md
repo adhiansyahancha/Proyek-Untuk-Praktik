@@ -71,3 +71,10 @@ Cascading Style Sheets (CSS) adalah bahasa desain yang digunakan untuk mengontro
     ```
 
     Dengan cara ini, Anda dapat mengelompokkan gaya berdasarkan fungsinya dan mengimpornya ke dalam file utama CSS Anda.
+
+# Komentar (Comments)
+Komentar dalam CSS digunakan untuk memberikan catatan atau penjelasan pada kode CSS Anda. Komentar tidak akan ditampilkan di halaman web, tetapi dapat membantu Anda atau orang lain memahami tujuan atau fungsi dari potongan kode CSS tertentu.
+
+```css
+/* Ini adalah komentar dalam CSS */
+```
