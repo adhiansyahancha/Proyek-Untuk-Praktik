@@ -82,8 +82,29 @@ Selektor digunakan untuk menargetkan elemen HTML yang ingin Anda gayakan dengan 
     }
     ```
     Contoh di atas akan memberikan warna hijau pada semua elemen `<p>` yang langsung menjadi anak dari elemen `<div>`.
+9. **Selektor Berdasarkan Pseudo-class**
+    Memilih elemen berdasarkan keadaan tertentu.
+    [info lengkap](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)
 
-9. **Selektor Berdasarkan Hierarki**
+    ```css
+    a:hover {
+        text-decoration: underline;
+    }
+    ```
+    Contoh di atas akan memberikan garis bawah pada tautan saat mouse berada di atasnya.
+
+10. **Selektor Berdasarkan Pseudo-element**
+    Memilih bagian-bagian spesifik dari elemen.
+    [info lengkap](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements)
+
+    ```css
+    p::first-line {
+        font-weight: bold;
+    }
+    ```
+    Contoh di atas akan memberikan teks pada baris pertama dari elemen `<p>` menjadi tebal.
+
+11. **Selektor Berdasarkan Hierarki**
     Kombinasi selektor yang memperhitungkan hubungan hierarkis antara elemen-elemen.
 
     ```css
@@ -93,7 +114,7 @@ Selektor digunakan untuk menargetkan elemen HTML yang ingin Anda gayakan dengan 
     ```
     Contoh di atas akan memberikan warna putih pada semua tautan yang berada di dalam elemen `<header>`, `<nav>`, `<ul>`, `<li>`, dan `<a>`.
 
-10. **Selektor Grup**
+12. **Selektor Grup**
     Memilih beberapa elemen sekaligus.
 
     ```css
@@ -103,3 +124,13 @@ Selektor digunakan untuk menargetkan elemen HTML yang ingin Anda gayakan dengan 
     ```
     Contoh di atas akan memberikan warna merah pada semua elemen `<h1>`, `<h2>`, dan `<h3>`.
 
+13. **Selektor Sibling Combinator**
+    Memilih elemen yang menjadi saudara (sibling) dari elemen lain.
+
+    ```css
+    h2 ~ p {
+        color: gray;
+    }
+    ```
+
+    Contoh di atas akan memberikan warna abu-abu pada semua elemen `<p>` yang merupakan sibling (saat berada di luar elemen `<h2>`) dari elemen `<h2>`. Ini berarti elemen `<p>` akan diubah gayanya jika berada di dalam elemen yang sama dengan elemen `<h2>` dan setelahnya.
