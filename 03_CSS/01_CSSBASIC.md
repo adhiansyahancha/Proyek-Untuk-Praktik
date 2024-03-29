@@ -4,113 +4,70 @@
 
 Cascading Style Sheets (CSS) adalah bahasa desain yang digunakan untuk mengontrol tata letak dan tampilan elemen-elemen dalam sebuah halaman web. CSS memungkinkan pengembang web untuk mengubah warna, font, ukuran, jarak, dan banyak lagi, secara konsisten di seluruh situs web, hanya dengan mengubah satu file.
 
-## Kenapa Kita Membutuhkan CSS?
+## Kenapa CSS Penting?
 
-- Memisahkan struktur (HTML) dan presentasi (CSS) dari halaman web.
-- Mengatur tampilan elemen secara konsisten di seluruh situs web.
-- Membuat tata letak yang responsif dan dapat diakses di berbagai perangkat.
-- Memberikan pengalaman pengguna yang lebih baik dengan desain yang menarik.
+- Pemisahan antara konten dan presentasi: CSS memungkinkan Anda untuk memisahkan struktur dan konten dari tampilan sebuah halaman web. Hal ini membuat pengelolaan dan pemeliharaan situs web menjadi lebih mudah.
+- Konsistensi: Dengan menggunakan CSS, Anda dapat memastikan konsistensi tampilan di seluruh situs web Anda. Anda dapat menerapkan gaya tertentu ke banyak elemen dengan mudah.
+- Responsif: CSS memungkinkan Anda untuk membuat situs web responsif, yang berarti situs Anda dapat menyesuaikan tampilan dan tata letaknya tergantung pada perangkat yang digunakan oleh pengguna.
 
-# Dasar-dasar CSS
+# Cara Menggunakan CSS
 
-## 1. Selektor
+1. **Inline CSS**: Anda dapat menambahkan gaya langsung ke elemen HTML menggunakan atribut `style`. Contohnya:
 
-Selektor adalah bagian dari aturan CSS yang menentukan elemen atau elemen-elemen mana yang akan diberi gaya. Contoh selektor termasuk nama elemen, kelas, ID, atau atribut.
+    ```html
+    <p style="color: blue; font-size: 16px;">Ini adalah teks dengan gaya langsung.</p>
+    ```
 
-```css
-/* Contoh selektor menggunakan nama elemen */
-p {
-    color: blue;
-}
+2. **Internal CSS**: Anda juga dapat menempatkan kode CSS di dalam tag `<style>` di bagian `<head>` dari halaman HTML. Ini akan berlaku untuk seluruh halaman tersebut. Contohnya:
 
-/* Contoh selektor menggunakan kelas */
-.nama_kelas {
-    font-size: 16px;
-}
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            p {
+                color: blue;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Ini adalah teks dengan gaya internal.</p>
+    </body>
+    </html>
+    ```
 
-/* Contoh selektor menggunakan ID */
-#nama_id {
-    background-color: yellow;
-}
-```
+3. **External CSS**: Untuk penggunaan yang lebih efisien, Anda dapat membuat file CSS eksternal yang berdiri sendiri dan memuatnya ke dalam halaman HTML menggunakan tag `<link>`. Contohnya:
 
-## 2. Properti dan Nilai
+    ```html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <p>Ini adalah teks dengan gaya eksternal.</p>
+    </body>
+    </html>
+    ```
 
-Properti adalah karakteristik yang ingin Anda atur, seperti warna, ukuran font, atau jarak. Nilai adalah nilai tertentu yang Anda berikan kepada properti tersebut.
+    Di file `styles.css`, Anda dapat menempatkan semua gaya CSS Anda:
 
-```css
-/* Contoh properti dan nilai */
-p {
-    color: blue; /* Properti: color, Nilai: blue */
-    font-size: 18px; /* Properti: font-size, Nilai: 18px */
-    margin-top: 20px; /* Properti: margin-top, Nilai: 20px */
-}
-```
+    ```css
+    p {
+        color: blue;
+        font-size: 16px;
+    }
+    ```
 
-## 3. Komentar
+4. **Aturan @import CSS**: Anda juga dapat mengimpor file CSS lain ke dalam file CSS Anda menggunakan aturan `@import`. Ini memungkinkan Anda untuk memisahkan gaya Anda menjadi beberapa file yang terpisah untuk lebih mudah dikelola. Contohnya:
 
-Anda dapat menambahkan komentar ke dalam file CSS Anda untuk menjelaskan kode atau membuatnya lebih mudah dipahami oleh orang lain.
+    Di dalam file `styles.css`:
 
-```css
-/* Ini adalah komentar CSS */
-```
+    ```css
+    @import url('reset.css');
+    @import url('layout.css');
+    @import url('colors.css');
+    ```
 
-## 4. Kelompokkan Aturan
-
-Anda dapat mengelompokkan beberapa aturan CSS bersama-sama untuk menerapkan gaya yang sama pada beberapa elemen.
-
-```css
-/* Mengelompokkan aturan */
-h1, h2, h3 {
-    font-family: Arial, sans-serif;
-    color: #333;
-}
-```
-
-## 5. Penerusan Nilai
-
-Penerusan nilai memungkinkan Anda mewariskan nilai dari elemen yang lebih tinggi ke elemen yang lebih rendah dalam hierarki.
-
-```html
-<div class="kontainer">
-    <p class="teks-utama">Ini adalah teks utama</p>
-</div>
-```
-
-```css
-/* Penerusan nilai */
-.kontainer {
-    font-family: Arial, sans-serif;
-}
-
-.teks-utama {
-    color: blue; /* Akan mewarisi font-family dari .kontainer */
-}
-```
-
-## 6. Penggunaan Unit
-
-Nilai properti CSS dapat ditentukan dalam berbagai unit seperti piksel (px), persen (%), em, rem, dan lain-lain.
-
-```css
-p {
-    font-size: 16px; /* piksel */
-    margin-left: 20%; /* persen */
-    padding: 1em; /* em */
-}
-```
-
-## 7. Kaskade dan Prioritas
-
-Kaskade adalah proses menentukan nilai yang akan diterapkan ke suatu elemen berdasarkan aturan CSS yang diterapkan padanya. Prioritas dapat ditentukan oleh spesifisitas, urutan, atau penggunaan !important.
-
-```css
-/* Prioritas */
-.teks {
-    color: red !important; /* Prioritas tertinggi */
-}
-
-.teks {
-    color: blue; /* Prioritas lebih rendah */
-}
-```
+    Dengan cara ini, Anda dapat mengelompokkan gaya berdasarkan fungsinya dan mengimpornya ke dalam file utama CSS Anda.
